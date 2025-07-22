@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha PWA Genérica</title>
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Ícones para mobile -->
+  <link rel="icon" type="image/png" href="icon-192x192.png" />
+  <link rel="apple-touch-icon" href="icon-192x192.png" />
+
+  <!-- Tema -->
+  <meta name="theme-color" content="#6A1B9A" />
+</head>
+<body>
+  <h1>🌐 PWA Genérica</h1>
+  <p>Esta página está pronta para ser instalada como um app no celular ou desktop.</p>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registrado', reg))
+          .catch(err => console.error('❌ Erro ao registrar o SW:', err));
+      });
+    }
+  </script>
+</body>
+</html>
